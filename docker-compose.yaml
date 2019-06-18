@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+  prestashop:
+    image: prestashop/prestashop
+    container_name: prestashop_www
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      # sites directory: add the sources
+      - ./www:/var/www/html
+    env_file: .env
+     
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
